@@ -1,0 +1,233 @@
+/*
+  This one CSS file is imported into both index.html AND hosono.html so you need to be careful that it 
+  works for both.
+*/
+
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+:root{
+  /* first two colours come from Kuroi's Manga Pallete Palette */
+  /* https://lospec.com/palette-list/manga-pallete */
+  --col-01:#171219;
+  --col-02:#f2fbeb;
+  --col-03:#5252ff;
+  --col-04:#b6e878;
+  font-size: 16px;
+  /* scroll behaviour makes the <a> links to ids scroll to position over time rather than immediately */
+  scroll-behavior: smooth;
+}
+
+h1:hover{  
+ /*color: rgb(41, 41, 41);*/
+}
+
+nav ol li a {
+  color: var(--col-01);
+  text-decoration: none;
+  cursor:pointer;
+  transition: 1s; /*added transition for a smoother experience*/
+}
+
+/*changed the colour on hover to make it more responsive so viewers know it is clickable and might lead to somewhere*/
+nav ol li a:hover{
+  color: #5252ff; 
+}
+
+#mode-button
+{
+  background-color:  #101010; 
+  border-radius: 15px;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#mode-button:hover{ /*changed the colour on hover to make it more responsive so viewers know it is clickable and might lead to somewhere*/
+  background-color: #5252ff;
+  cursor: pointer;
+}
+
+body{
+  padding: 1rem;
+  background-color: var(--col-02);
+  color: var(--col-01);
+  transition: 1s; /*if anythg chgs just apply this rule*/
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav li{
+  font-size: 1rem;
+}
+
+section{
+  margin-bottom: 2rem;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+p{
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+figcaption{
+  width: fit-content;
+}
+
+dl ul{
+  margin-bottom: 0;
+}
+
+li{
+  font-size: 1rem;
+}
+
+dd{
+  padding-left: 60px;
+}
+
+li ul{
+  padding-left: 40px;
+}
+
+.img-wrapper{
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.img-figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-img{
+  width: 80%;
+}
+
+.res-columns{
+  column-width: 25rem;
+}
+
+#mode-button{
+  float: right;
+  /* note the use of position: sticky to keep the button on the page even with scrolling */
+  position: sticky;
+  top: 1rem;
+}
+
+/* code for loading page */
+
+#load-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* changing button to look like a link */
+#load-link{
+  line-height: 1rem;
+  background-color: transparent;
+  border: 0;
+  cursor:pointer; /*changed the cursor to pointer so it matches with the cursors with the rest of the website, also it is more responsive*/
+}
+
+#load-link:hover{
+ color: #5252ff;
+ scale: 120%; /*made it increase in size and change colour to create a more fun and interactive experience, also emphasizes its importance*/
+ transition: 0.5s;
+}
+
+
+#load-throbber {
+  margin: 20px;
+  border: 10px solid #EAF0F6;
+  border-radius: 50%;
+  border-top: 10px solid;
+  width: 50px;
+  height:50px;
+  display: none;
+  animation: spinner 4s linear infinite;
+}
+
+
+@keyframes spinner {
+  0% { transform: rotate(0deg);  
+    color: blue;}
+  50% { transform: rotate(180deg);
+      color: rgb(213, 190, 36) }
+  100% { transform: rotate(360deg);
+    color: rgb(234, 77, 208) }
+}
+
+
+@keyframes cycleColour {
+  0% {
+    background-color: blue;
+  }
+  30%{
+    background-color: blueviolet;
+  }
+  50% {
+    background-color: greenyellow;
+  }
+  100% {
+  background-color: rgb(196, 27, 49);
+  }
+}
+
+/* Media Queries */
+
+/* it is a if statement change w condition*/
+/* medium devices 600 - 992 */
+@media only screen and (min-width: 600px) {
+  :root{
+    font-size: 20px;
+  }
+  
+  .img-wrapper{
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+
+}
+
+/* when it is smaller screen you don't need as much padding, but since it increase there is more padding*/
+/* medium devices 992 + */
+@media only screen and (min-width: 992px) {
+  :root{
+    font-size: 24px;
+  }
+
+  /*if img width base on the width of the screen on mobile looks ok but on web its just too big*/
+  .img-wrapper{
+    max-width: fit-content;
+    float: right;
+    margin: 1.5rem;
+  }
+}
+
+/*if you tun on animations on web in windows*/
+@media (prefers-reduced-motion) {
+  :root{
+    scroll-behavior: auto;
+  }
+}
